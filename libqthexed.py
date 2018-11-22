@@ -57,9 +57,9 @@ class DataView:
     def __init__(self, data=None, filename=None, readonly=True):
         if not (data or filename):
             raise ValueError('Raw data or a filename must be provided!')
-        self.rawdata = data
         if data and not readonly and type(data) is bytes:
             data = bytearray(data)
+        self.rawdata = data
         self.filename = filename
         self.readonly = readonly
         self._data = None
